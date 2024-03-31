@@ -1,0 +1,213 @@
+
+<div *ngIf="user.roles[0]=='ROLE_USER' else elseblocke">
+  <div id="notfounde">
+    <div class="notfound">
+      <div class="notfound-404">
+        <h1>Oops!</h1>
+      </div>
+      <h2>404 - Page not found</h2>
+      <p>The page you are looking for might have been removed had its name changed or is temporarily unavailable.</p>
+      <a href="/dashboard">Go To Homepage</a>
+    </div>
+  </div>
+</div>
+<ng-template #elseblocke>
+  <div class="header  pb-8 pt-5 pt-md-8" style="background-color: #2C3144">
+    <div class="container-fluid">
+      <div class="header-body">
+        <!-- Card stats -->
+
+        <div class="row">
+          <div class="col-xl-3 col-lg-6">
+
+          </div>
+          <div class="col-xl-3 col-lg-6">
+
+
+          </div>
+          <div class="col-xl-3 col-lg-6">
+
+          </div>
+          <div class="col-xl-3 col-lg-6">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page content -->
+  <div class="container mt--8 pb-5">
+    <!-- Table -->
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8">
+        <div class="card bg-secondary shadow border-0">
+          <div class="card-header bg-white pb-5">
+            Ajouter Event
+          </div>
+
+          <div class="card-body px-lg-5 py-lg-5">
+
+            <form
+              *ngIf="!isSuccessful"
+              name="form"
+              (ngSubmit)="f.form.valid && onSubmit()"
+              #f="ngForm"
+              novalidate
+            >
+
+              <div class="form-group">
+                <label for="name">Nom Evenement</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="name"
+                  [(ngModel)]="form.name"
+                  required
+
+                  #firstname="ngModel"
+                />
+
+                <div class="alert-danger" *ngIf="f.submitted && firstname.invalid">
+                  <div *ngIf="firstname.errors.required">Immatriculation non valide</div>
+
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="description"> Description </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="description"
+                  [(ngModel)]="form.description"
+                  required
+
+                  #description="ngModel"
+                />
+                <div class="alert-danger" *ngIf="f.submitted && description.invalid">
+                  <div *ngIf="description.errors.required">taxes  non valide
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="date"> Date de l'evenement </label>
+                <input
+                  type="date"
+                  class="form-control"
+                  name="date"
+                  [(ngModel)]="form.date"
+                  required
+
+                  #date="ngModel"
+                />
+                <div class="alert-danger" *ngIf="f.submitted && date.invalid">
+                  <div *ngIf="date.errors.required">Date de naissance  non valide
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="heure">Heure</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="heure"
+                  [(ngModel)]="form.heure"
+                  required
+
+                  #firstname="ngModel"
+                />
+
+                <div class="alert-danger" *ngIf="f.submitted && firstname.invalid">
+                  <div *ngIf="firstname.errors.required">Immatriculation non valide</div>
+
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="salle"> Salle </label>
+
+                <select
+                  class="form-control"
+                  name="idsalle"
+                  [(ngModel)]="form.idsalle"
+
+                  required
+
+                  #idsalle="ngModel">
+                  <option selected > -----choisir une salle----</option>
+                  <option *ngFor="let salle of salles" value="{{salle.id}}">{{salle.name}}</option>
+                </select>
+                <div class="alert-danger" *ngIf="f.submitted && idsalle.invalid">
+                  <div *ngIf="idsalle.errors.required">Date de naissance  non valide
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="clubs"> clubs </label>
+
+                <select multiple
+                  class="form-control"
+                  name="idsalle"
+                  [(ngModel)]="form.nameClubs"
+
+                  required
+
+                  #nameClubs="ngModel">
+                  <option selected > -----choisir le(s) club(s)----</option>
+                  <option *ngFor="let club of clubs" value="{{club.name}}">{{club.name}}</option>
+                </select>
+                <div class="alert-danger" *ngIf="f.submitted && nameClubs.invalid">
+                  <div *ngIf="nameClubs.errors.required">Date de naissance  non valide
+                  </div>
+
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="materiels"> Materiels </label>
+
+                <select multiple
+                        class="form-control"
+                        name="matereil"
+                        [(ngModel)]="form.nameMateriels"
+
+                        required
+
+                        #nameMateriels="ngModel">
+                  <option selected > -----choisir le(s) Materiel(s)----</option>
+                  <option *ngFor="let materiel of materiels" value="{{materiel.name}}">{{materiel.name}}</option>
+                </select>
+                <div class="alert-danger" *ngIf="f.submitted && nameMateriels.invalid">
+                  <div *ngIf="nameMateriels.errors.required">Date de naissance  non valide
+                  </div>
+
+                </div>
+              </div>
+
+
+
+              <div class="form-group">
+                <button class="btn btn-primary btn-block">Ajouter</button>
+              </div>
+
+              <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+                Signup failed!<br/>{{ errorMessage }}
+              </div>
+            </form>
+            <div class="alert alert-success" *ngIf="isSuccessful">
+              Your registration is successful!
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div></ng-template>
+
+

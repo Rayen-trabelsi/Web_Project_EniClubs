@@ -1,0 +1,74 @@
+Frontend :
+
+# compiled output
+./Frontend/dist
+./Frontend/tmp
+./Frontend/out-tsc
+
+# dependencies
+./Frontend/node_modules
+
+# IDEs and editors
+./Frontend/.idea
+./Frontend/.project
+./Frontend/.classpath
+./Frontend/.c9/
+./Frontend/*.launch
+./Frontend/.settings/
+./Frontend/*.sublime-workspace
+
+# IDE - VSCode
+./Frontend/.vscode/*
+./Frontend/!.vscode/settings.json
+./Frontend/!.vscode/tasks.json
+./Frontend/!.vscode/launch.json
+./Frontend/!.vscode/extensions.json
+
+# misc
+./Frontend/.sass-cache
+./Frontend/connect.lock
+./Frontend/coverage
+./Frontend/libpeerconnection.log
+./Frontend/npm-debug.log
+./Frontend/yarn-error.log
+./Frontend/testem.log
+./Frontend/typings
+
+# System Files
+./Frontend/.DS_Store
+./Frontend/Thumbs.db
+
+Backend :
+
+./Backend/HELP.md
+./Backend/target/
+./Backend/!.mvn/wrapper/maven-wrapper.jar
+./Backend/!**/src/main/**
+./Backend/!**/src/test/**
+
+### STS ###
+./Backend/.apt_generated
+./Backend/.classpath
+./Backend/.factorypath
+./Backend/.project
+./Backend/.settings
+./Backend/.springBeans
+./Backend/.sts4-cache
+
+### IntelliJ IDEA ###
+./Backend/.idea
+./Backend/*.iws
+./Backend/*.iml
+./Backend/*.ipr
+
+### NetBeans ###
+./Backend/nbproject/private/
+./Backend/nbbuild/
+./Backend/dist/
+./Backend/nbdist/
+./Backend/.nb-gradle/
+./Backend/build/
+
+### VS Code ###
+./Backend/.vscode/
+
